@@ -17,6 +17,7 @@ def start_game():
         solution = random.randint(1,10)
     
     answer = int(input("Guess a number between 1-10: "))
+    while answer != solution:
         
         if answer < solution:
             answer_attempts.append(answer)
