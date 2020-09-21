@@ -8,10 +8,11 @@ import random
 
 print("Welcome to the NUMBER GUESSING GAME!!!")
 
-answer_attempts = []
+
 highscore = []
 
 def start_game():
+    answer_attempts = []
 
     for solution in range(10):
         solution = random.randint(1,10)
