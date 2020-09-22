@@ -6,7 +6,7 @@
 
 import random
 
-print("Welcome to the NUMBER GUESSING GAME!!!")
+print("Welcome to the NUMBER GUESSING GAME!!!\n")
 
 
 highscore = []
@@ -14,37 +14,37 @@ highscore = []
 def start_game():
     answer_attempts = []
 
-    for solution in range(10):
-        solution = random.randint(1,10)
+    solution = random.randint(1,10)
 
     try:
-        answer = int(input("Guess a number between 1-10: "))
+        answer = int(input("--> Guess a number between 1-10: "))
     
         while answer != solution:
         
             if answer < solution:
                 answer_attempts.append(answer)
-                print("It's higher")
-                answer = int(input("Guess a number between 1-10: ")) 
+                print("You're guess is too low")
+                answer = int(input("--> Guess a number between 1-10: ")) 
 
             if answer > solution:
                 answer_attempts.append(answer)
-                print("It's lower!")
-                answer = int(input("Guess a number between 1-10: "))
+                print("You're guess is too high")
+                answer = int(input("--> Guess a number between 1-10: "))
     except ValueError:
-        print("Seriously?? Not a valid respone... Start over!!")
+        print("Seriously?? Not a valid response... Start over!!\n")
         start_game()
                      
     answer_attempts.append(answer)
-    print("Got it")
-    print("It took you {} attempts.".format(len(answer_attempts)))
+    print("YOU GOT IT!!!")
+    print("It took you {} attempts.\n".format(len(answer_attempts)))
     highscore.append(len(answer_attempts))
 
     play_again = input("Would you like to play again? (y)es or (n)o: ")
     if play_again.lower() == "y":
+        print("\nHighscore = {}\n".format(min(highscore)))
         start_game()
     else:
-        print("Highscore = {}".format(min(highscore)))
+        print("Final Highscore = {}\n".format(min(highscore)))
         print("Goodbye")
 
     
