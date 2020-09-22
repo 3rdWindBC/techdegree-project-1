@@ -32,12 +32,14 @@ def start_game():
                      
     answer_attempts.append(answer)
     print("Got it")
-            
+    print("It took you {} attempts.".format(len(answer_attempts)))
+    highscore.append(len(answer_attempts))
+
     play_again = input("Would you like to play again? (y)es or (n)o: ")
     if play_again.lower() == "y":
         start_game()
     else:
-        print("It took you {} attempts.".format(len(answer_attempts)))
+        print("Highscore = {}".format(min(highscore)))
         print("Goodbye")
 
 
