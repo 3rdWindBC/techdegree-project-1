@@ -16,19 +16,24 @@ def start_game():
 
     for solution in range(10):
         solution = random.randint(1,10)
-    
-    answer = int(input("Guess a number between 1-10: "))
-    while answer != solution:
-        
-        if answer < solution:
-            answer_attempts.append(answer)
-            print("It's higher")
-            answer = int(input("Guess a number between 1-10: ")) 
 
-        if answer > solution:
-            answer_attempts.append(answer)
-            print("It's lower!")
-            answer = int(input("Guess a number between 1-10: "))
+    try:
+        answer = int(input("Guess a number between 1-10: "))
+    
+        while answer != solution:
+        
+            if answer < solution:
+                answer_attempts.append(answer)
+                print("It's higher")
+                answer = int(input("Guess a number between 1-10: ")) 
+
+            if answer > solution:
+                answer_attempts.append(answer)
+                print("It's lower!")
+                answer = int(input("Guess a number between 1-10: "))
+    except ValueError:
+        print("Seriously?? Not a valid respone... Start over!!")
+        start_game()
                      
     answer_attempts.append(answer)
     print("Got it")
@@ -41,9 +46,6 @@ def start_game():
     else:
         print("Highscore = {}".format(min(highscore)))
         print("Goodbye")
-
-
-
 
     
 start_game()
